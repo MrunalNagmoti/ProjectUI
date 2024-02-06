@@ -1,8 +1,10 @@
 "use client"
 import { Register } from "@/Register/Register";
 import { Student } from "@/Student/Student";
+import { Api } from "@/services/Api";
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 export default function Home() {
 
 const [users, setUsers] = useState([])
@@ -11,7 +13,8 @@ const [users, setUsers] = useState([])
   }, [])
   const fnGetUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:2020/stdCtl/get-std")
+     
+      const res = await Api.sendGetReq("stdCtl/get-std")
       setUsers(res.data);
     } catch (ex) {
       setUsers([])
