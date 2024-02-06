@@ -2,7 +2,7 @@
 import { Register } from "@/Register/Register";
 import { Student } from "@/Student/Student";
 import { Api } from "@/services/Api";
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 
 export default function Home() {

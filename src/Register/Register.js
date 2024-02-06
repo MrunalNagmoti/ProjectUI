@@ -1,6 +1,6 @@
 "use client"
 import { Api } from '@/services/Api'
-import axios from 'axios'
+
 import React, { useState } from 'react'
 
 export const Register = ({ fnGetUsers }) => {
