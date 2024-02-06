@@ -1,4 +1,4 @@
-import axios from axios
+import axios from "axios"
 const Base_Url ="https://project-server-eight.vercel.app/"
 export class Api{
     
