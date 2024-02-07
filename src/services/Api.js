@@ -5,7 +5,8 @@ export class Api{
     static sendGetReq(url){
         return axios.get(Base_Url+url)
     }
-    static sendPostReq(url){
+
+    static sendPostReq(url,data){
         return axios.post(Base_Url+url,data)
     }
 }
