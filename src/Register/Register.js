@@ -27,7 +27,7 @@ export const Register = ({ fnGetUsers }) => {
     const handleButton = async () => {
         try {
             console.log(data)
-            const res = await Api.sendPostReq("stdCtl/get-std",  { data } )
+            const res = await Api.sendPostReq("stdCtl/reg-std",  { data } )
             const { acknowledged, insertedId } = res.data
             if (acknowledged && insertedId) {
                 setData({userId:"", pwd:"",hobbies:"",gen:"",country:"",address:"" })
