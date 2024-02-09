@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <h1 className="bg-primary text-center text-white pt-3 pb-3" >My Form Using REST API</h1>
         {children}
-        <div className="bg-primary text-center text-white position-fixed bottom-0 w-100">&copy;rights 2024</div>
+        <div className="bg-primary text-center text-white  bottom-0 w-100 ">&copy;rights 2024</div>
         </body>
     </html>
   );
