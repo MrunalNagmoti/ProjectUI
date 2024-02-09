@@ -27,10 +27,10 @@ export const Register = ({ fnGetUsers }) => {
     const handleButton = async () => {
         try {
             // console.log(data)
-            const res = await Api.sendPostReq("stdCtl/reg-std",  { data } )
+            const res = await Api.sendPostReq("stdCtl/reg-std", { data })
             const { acknowledged, insertedId } = res.data
             if (acknowledged && insertedId) {
-                setData({userId:"", pwd:"",hobbies:"",gen:"",country:"",address:"" })
+                setData({ userId: "", pwd: "", hobbies: "", gen: "", country: "", address: "" })
                 // setData({})
                 alert("Success")
                 fnGetUsers()
@@ -44,43 +44,80 @@ export const Register = ({ fnGetUsers }) => {
 
         }
     }
- 
+
 
     return (
-        <div>
-            <h3> Registration</h3>
+        <div className='container-fluid'>
+            <h3 className='mb-3 text-center'> Registration</h3>
+            <div className='row mb-3'>
+                <div className='col-4 col-md-5 text-end'>
+                    <b>User Id:</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3'>
+                    <input className="form-control" value={data.userId} onChange={fnChange} name='userId' />
+                </div>
+            </div>
 
-            <p>
-                <b>User Id:</b><input value={data.userId} onChange={fnChange} name='userId' />
-            </p>
-            <p>
-                <b>Password:</b><input value={data.pwd} onChange={fnChange} name='pwd' />
-            </p>
-            <p>
-                <b>Gender</b>
-                <input checked={data.gen === 'm'} value='m' name='gen' type='radio' onChange={fnChange} />Male
-                <input checked={data.gen === 'f'} value='f' name='gen' type='radio' onChange={fnChange} />Female
-            </p>
-            <p>
-                <b>Hobbies:</b>
-                <input checked={data.hobbies?.includes("fb")} name='fb' type='checkbox' value='fb' onChange={fnChange} />Football
-                <input checked={data.hobbies?.includes("cri")} name='cri' type='checkbox' value='cri' onChange={fnChange} />Cricket
-            </p>
-            <p>
-                <b>Country:</b>
-                <select onChange={fnChange} name='country' >
-                    <option >Select option</option>
-                    <option value='ind'>India</option>
-                    <option value='chi'>China</option>
-                    <option value='us'>USA</option>
-                </select>
-            </p>
-            <p>
-                <b>Address</b><textarea value={data.address} onChange={fnChange} name='address' />
-            </p>
-            <p>
-                <button onClick={handleButton}>Register</button>
-            </p>
+            <div className='row mb-3'>
+                <div className='col-4 col-md-5 text-end'>
+                    <b>Password:</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3 '>
+                    <input className="form-control" value={data.pwd} onChange={fnChange} name='pwd' />
+                </div>
+            </div>
+
+            <div className='row mb-3'>
+                <div className='col-4 col-md-5 text-end'>
+                    <b>Gender</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3 '>
+                    <input className='me-2' checked={data.gen === 'm'} value='m' name='gen' type='radio' onChange={fnChange} />Male
+                    <input className="ms-3 me-2" checked={data.gen === 'f'} value='f' name='gen' type='radio' onChange={fnChange} />Female
+                </div>
+            </div>
+
+            <div className='row mb-3'>
+                <div className='col-4 col-md-5 text-end'>
+                    <b>Hobbies:</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3 '>
+                    <input className='me-2' checked={data.hobbies?.includes("fb")} name='fb' type='checkbox' value='fb' onChange={fnChange} />Football
+                    <input  className="ms-3 me-2" checked={data.hobbies?.includes("cri")} name='cri' type='checkbox' value='cri' onChange={fnChange} />Cricket
+                </div>
+            </div>
+
+
+            <div className='row mb-3'>
+                <div className='col-4 col-md-5 text-end'>
+                    <b>Country:</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3 '>
+                    <select className='form-control' onChange={fnChange} name='country' >
+                        <option >Select option</option>
+                        <option value='ind'>India</option>
+                        <option value='chi'>China</option>
+                        <option value='us'>USA</option>
+                    </select>
+                </div>
+            </div>
+
+            <div className='row mb-3'>
+                <div className='col-4  col-md-5 text-end'>
+                    <b>Address:</b>
+                </div>
+                <div className='col-6 col-md-4 col-lg-3 '>
+                    <textarea className='form-control' value={data.address} onChange={fnChange} name='address' />
+                </div>
+            </div>
+
+            <div className='row mb-3'>
+                <div className='offset-4 offset-md-5 col-md-7 '>
+                <button className='btn btn-danger ' onClick={handleButton}>Register</button>
+                </div>
+               
+            </div>
+           
 
 
 
